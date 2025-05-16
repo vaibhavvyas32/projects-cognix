@@ -1,0 +1,14 @@
+:root {
+    --light-sidebar-bg: #f0f4f9;
+    --light-main-bg: #fff;
+    --dark-sidebar-bg: #282c34;
+    --dark-main-bg: #1d1f23;
+    /* ... other theme variables ... */
+  }
+  
+
+.dark-mode {
+    --sidebar-bg: var(--dark-sidebar-bg);
+    --main-bg: var(--dark-main-bg);
+    /* ... other dark mode styles ... */
+}

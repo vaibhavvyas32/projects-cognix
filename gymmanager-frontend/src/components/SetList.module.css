@@ -1,0 +1,151 @@
+.set-list-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.set-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.set-list-add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.set-list-add-btn:hover {
+  background: #1d4ed8;
+}
+.set-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.set-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+.set-list-item-info {
+  flex: 1;
+}
+.set-list-item-edit,
+.set-list-item-delete {
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.set-list-item-edit:hover {
+  color: #059669;
+}
+.set-list-item-delete:hover {
+  color: #dc2626;
+}
+
+/* Modal styles */
+.set-form-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.set-form-modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 95vw;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.set-form-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-align: center;
+}
+.set-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.set-form-group label {
+  font-size: 0.98rem;
+  color: #374151;
+}
+.set-form-group input,
+.set-form-group select {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.set-form-group input:focus,
+.set-form-group select:focus {
+  border: 1.5px solid #2563eb;
+}
+.set-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+.set-form-submit-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.set-form-submit-btn:hover {
+  background: #1d4ed8;
+}
+.set-form-cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.set-form-cancel-btn:hover {
+  background: #d1d5db;
+}
+@media (max-width: 600px) {
+  .set-list-container {
+    padding: 0.5rem;
+  }
+  .set-form-modal-content {
+    padding: 1rem 0.5rem;
+    min-width: 90vw;
+  }
+}

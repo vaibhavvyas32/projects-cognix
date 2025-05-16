@@ -1,0 +1,573 @@
+:root {
+  --color-bg: #f7f7f7;
+  --color-text: #222;
+  --color-card: #fff;
+  --color-card-shadow: rgba(0,0,0,0.08);
+  --color-primary: #20bfa9; /* Modern teal */
+}
+
+[data-theme="dark"] {
+  --color-bg: #181a1b;
+  --color-text: #f7f7f7;
+  --color-card: #23272a;
+  --color-card-shadow: rgba(0,0,0,0.4);
+  --color-primary: #20bfa9;
+}
+
+body, .App {
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-shadow);
+  border-radius: 20px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  z-index: 100;
+  transition: background 0.2s, color 0.2s;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 24px;
+  left: 32px;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-shadow);
+  border-radius: 20px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  z-index: 100;
+  transition: background 0.2s, color 0.2s;
+}
+
+h1 {
+  color: var(--color-primary);
+  margin-bottom: 32px;
+}
+
+.section-card {
+  background: var(--color-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px var(--color-card-shadow);
+  margin: 24px auto;
+  max-width: 600px;
+  padding: 24px 32px;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+h2 {
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 18px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  grid-gap: 32px;
+  margin: 40px 2vw 0 2vw;
+  align-items: flex-start;
+}
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+  }
+}
+@media (max-width: 800px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 18px;
+    margin: 20px 2vw 0 2vw;
+  }
+}
+
+.dashboard-card {
+  background: var(--color-card);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px var(--color-card-shadow);
+  padding: 28px 32px 24px 32px;
+  margin-bottom: 24px;
+  min-height: 120px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-card > h2, .dashboard-card > h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--color-primary);
+  letter-spacing: 0.01em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 12px 16px;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--color-card-shadow);
+  transition: background 0.2s, color 0.2s;
+}
+
+li:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Ensure nested spans in hovered list items also get the hover text color */
+li:hover span {
+  color: inherit; /* Or explicitly #fff if that's always the target */
+}
+
+/* Specific styles for logged set items in DayOfExerciseList */
+.logged-set-item {
+  /* These items have inline padding: 3px 0, which overrides the default li padding */
+  /* Their default background comes from the generic 'li' rule: var(--color-bg) */
+  /* Their default text color comes from the generic 'li' or body: var(--color-text) */
+  /* We mostly care about the hover state */
+}
+
+.logged-set-item:hover {
+  background-color: var(--color-primary); /* Consistent with general li hover */
+  color: #ffffff; /* Explicitly white text */
+}
+
+/* Crucially, ensure child spans within a hovered logged-set-item also turn white */
+.logged-set-item:hover span {
+  color: #ffffff !important; /* Using !important to forcefully ensure visibility if inheritance fails */
+}
+
+/* Add more whitespace between cards */
+.dashboard-card + .dashboard-card {
+  margin-top: 32px;
+}
+
+/* Responsive tweaks for cards */
+@media (max-width: 700px) {
+  .dashboard-card {
+    padding: 14px 6px 12px 6px;
+    min-height: 80px;
+  }
+  .theme-toggle {
+    right: 10px;
+    top: 10px;
+    padding: 6px 12px;
+  }
+  .logout-btn {
+    left: 10px;
+    top: 10px;
+    padding: 6px 12px;
+  }
+}
+
+.login-signup-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.login-signup-container .app-title {
+  margin-bottom: 36px;
+  margin-top: 0;
+}
+
+.login-signup-card {
+  background: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px var(--color-card-shadow);
+  padding: 40px 32px 32px 32px;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-signup-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.login-signup-tabs button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.login-signup-tabs button.active, .login-signup-tabs button:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.login-signup-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.login-signup-card input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+  transition: border 0.2s;
+}
+
+.login-signup-card input:focus {
+  border: 1.5px solid var(--color-primary);
+}
+
+.login-signup-card button[type="submit"] {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.login-signup-card button[type="submit"]:hover {
+  background: #2563eb;
+}
+
+.form-error {
+  color: #e74c3c;
+  background: #fff0f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.98rem;
+  margin-bottom: -8px;
+  text-align: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--color-card);
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  min-width: 350px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc; /* Use a specific border color or var */
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-sizing: border-box;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #179e8c;
+}
+.btn-primary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+.btn-secondary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999; /* Below sidebar, above content */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Hidden by default */
+  width: 280px;
+  height: 100%;
+  background: var(--color-card);
+  color: var(--color-text);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  z-index: 2000;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-header {
+  padding: 20px 15px;
+  border-bottom: 1px solid var(--color-card-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header h4 {
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.sidebar-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  padding-top: 15px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.sidebar-nav li a span { /* For icons */
+  display: inline-block;
+  width: 20px; /* Adjust as needed */
+  text-align: center;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid var(--color-card-shadow);
+}
+
+.logout-btn-sidebar {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.logout-btn-sidebar:hover {
+  background-color: #179e8c;
+}
+
+.burger-menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-shadow);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  z-index: 100;
+}
+
+.theme-toggle-icon-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-shadow);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem; /* Adjust for icon size */
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  z-index: 100;
+}
+
+/* Remove old text-based logout button if still present */
+.logout-btn { /* This was the old top-left button */
+  display: none; 
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 32px 0 18px 0;
+  letter-spacing: 0.01em;
+  justify-content: center;
+  gap: 18px;
+}
+.app-title-emoji {
+  font-size: 2.5rem;
+  margin-right: 10px;
+}
+@media (max-width: 700px) {
+  .app-title {
+    font-size: 1.4rem;
+    margin: 18px 0 10px 0;
+  }
+  .app-title-emoji {
+    font-size: 1.7rem;
+    margin-right: 7px;
+  }
+}
+
+@media (max-width: 700px) {
+  .login-signup-container .app-title {
+    margin-bottom: 18px;
+  }
+} 

@@ -1,0 +1,193 @@
+/* Layout */
+.main-layout {
+  @apply flex min-h-screen bg-gray-100;
+}
+
+/* Main content grid layout */
+.grid-layout {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6 p-6;
+}
+
+.sidebar {
+  @apply w-80 bg-white shadow-lg p-6 fixed h-full;
+}
+
+.main-content {
+  @apply flex-1 pl-80;
+}
+
+/* Common styles */
+.container {
+  @apply max-w-4xl p-6 bg-white rounded-xl shadow-lg mx-6 my-6;
+}
+
+.header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+/* Dashboard styles */
+.dashboard {
+  @apply p-6 space-y-6;
+}
+
+.dashboard-header {
+  @apply flex items-center space-x-4;
+}
+
+.avatar {
+  @apply w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xl font-semibold shadow-lg;
+}
+
+.avatar-text {
+  @apply text-white;
+}
+
+.user-info {
+  @apply flex-1;
+}
+
+.user-name {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.user-username {
+  @apply text-sm text-gray-500;
+}
+
+.user-stats {
+  @apply grid grid-cols-2 gap-4 mt-6;
+}
+
+.stat-item {
+  @apply bg-white rounded-lg p-4 shadow-sm;
+}
+
+.stat-label {
+  @apply block text-sm font-medium text-gray-500;
+}
+
+.stat-value {
+  @apply block text-lg font-semibold text-gray-900 mt-1;
+}
+
+/* SetList specific styles */
+.list {
+  @apply divide-y divide-gray-200;
+}
+
+.add-button {
+  @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200;
+}
+
+/* SetListItem specific styles */
+.list-item {
+  @apply flex items-center justify-between py-4 transition-colors duration-150 hover:bg-gray-50 px-4 rounded-lg;
+}
+
+.item-content {
+  @apply flex-1;
+}
+
+.exercise-name {
+  @apply text-lg font-medium text-gray-900;
+}
+
+.exercise-details {
+  @apply text-sm text-gray-500 mt-1;
+}
+
+.action-buttons {
+  @apply flex items-center space-x-3;
+}
+
+.edit-button {
+  @apply inline-flex items-center px-3 py-1.5 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200;
+}
+
+.delete-button {
+  @apply inline-flex items-center px-3 py-1.5 border border-transparent rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200;
+}
+
+/* SetForm specific styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50;
+}
+
+.modal {
+  @apply bg-white rounded-lg shadow-xl max-w-md w-full mx-auto p-6 transform transition-all;
+}
+
+.form {
+  @apply space-y-6;
+}
+
+.form-group {
+  @apply space-y-2;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.input {
+  @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors duration-200;
+}
+
+.select {
+  @apply mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md transition-colors duration-200;
+}
+
+.form-footer {
+  @apply flex justify-end space-x-3 mt-6;
+}
+
+.submit-button {
+  @apply inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200;
+}
+
+.cancel-button {
+  @apply inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .container {
+    @apply bg-gray-800;
+  }
+
+  .title {
+    @apply text-white;
+  }
+
+  .list-item {
+    @apply hover:bg-gray-700;
+  }
+
+  .exercise-name {
+    @apply text-white;
+  }
+
+  .exercise-details {
+    @apply text-gray-400;
+  }
+
+  .modal {
+    @apply bg-gray-800;
+  }
+
+  .label {
+    @apply text-gray-200;
+  }
+
+  .input, .select {
+    @apply bg-gray-700 border-gray-600 text-white;
+  }
+
+  .edit-button {
+    @apply bg-gray-700 text-gray-200 border-gray-600 hover:bg-gray-600;
+  }
+}

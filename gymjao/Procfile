@@ -1,0 +1,1 @@
+web: gunicorn gymjao.wsgi --log-file -
